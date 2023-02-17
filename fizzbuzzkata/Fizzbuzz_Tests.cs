@@ -2,24 +2,17 @@ namespace fizzbuzzkata
 {
     public class FizzBuzzTests
     {
-        [Fact]
-        public void IntReturnsInt()
+       
+        [Theory]
+        [InlineData(1,"1")]
+        [InlineData(3,"Fizz")]
+        [InlineData(5,"Buzz")]
+        public void I(int number,string expected)
         {
-            var result = new FizzBuzz().check(1);
-            Assert.Equal("1", result);
-        }
-        [Fact]
-        public void IntIsDivisibleBy3() {
-            var result = new FizzBuzz().check(3);
-            Assert.Equal("Fizz", result);
+            var result = new FizzBuzz().check(number);
+            Assert.Equal(expected, result);
         }
 
-        [Fact]
-        public void IntIsDivisibleBy5()
-        {
-            var result = new FizzBuzz().check(5);
-            Assert.Equal("Buzz", result);
-        }
-      
+
     }
 }
