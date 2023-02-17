@@ -4,7 +4,7 @@ namespace fizzbuzzkata
     {      
         [Theory]
         [InlineData(1,"1")]
-        [InlineData(3,"Fizz")]
+        [InlineData(3,"Lucky")]
         [InlineData(5,"Buzz")]
         [InlineData(15, "FizzBuzz")]
         public void FizzBuzzKata(int number,string expected)
@@ -12,12 +12,14 @@ namespace fizzbuzzkata
             var result = new FizzBuzz().Check(number);
             Assert.Equal(expected, result);
         }
+        
+
         [Fact]
-        public void FizzBuzzKata_()
+        public void FizzBuzzLucky_()
         {
-            var input = Enumerable.Range(1, 20).ToArray();
-            var result = new FizzBuzz().Check(input);
-            Assert.Equal("1, 2, Fizz, 4, Buzz, Fizz, 7, 8, Fizz, Buzz, 11, Fizz, 13, 14, FizzBuzz, 16, 17, Fizz, 19, Buzz", result);
+            var numbers = Enumerable.Range(1, 23).ToArray();
+            var result = new FizzBuzz().Check(numbers);
+            Assert.Equal("1, 2, Lucky, 4, Buzz, Fizz, 7, 8, Fizz, Buzz, 11, Fizz, Lucky, 14, FizzBuzz, 16, 17, Fizz, 19, Buzz, Fizz, 22, Lucky", result);
         }
     }
 }

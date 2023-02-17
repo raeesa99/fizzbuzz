@@ -11,10 +11,18 @@ namespace fizzbuzzkata
     {
         public string Check(int number)
         {
+            var rule = new Lucky();
 
-            if (number % 15 == 0)
+            if (rule.isApplicable(number))
             {
-                return "FizzBuzz";
+                return rule.Apply();
+            }
+
+            var rule1 = new FizzBuzzChecker();
+
+            if (rule1.isApplicable(number))
+                {
+                return rule1.Apply();
             }
             else if (number % 3 == 0)
             {
@@ -35,12 +43,13 @@ namespace fizzbuzzkata
         {
             var results = new List<string>();
             for (int i = 0; i < input.Count(); i++)
+
             {
                 Check(input[i]);
                 results.Add(Check(input[i]));
-                
             }
             return string.Join(", ", results);
         }
+
     }
 }
