@@ -5,7 +5,7 @@ on:
   push:
 
 env:
-  AZURE_FUNCTIONAPP_PACKAGE_PATH: "fizzbuzzkata"
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: "fizzbuzzkata/fizzbuzzkata"
 
 jobs:
   build-and-test-and-deploy:
