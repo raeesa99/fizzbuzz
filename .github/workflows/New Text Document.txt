@@ -1,0 +1,27 @@
+// .github\workflows
+name: Build And Test
+
+on:
+  push:
+
+env:
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: "fizzbuzzkata"
+
+jobs:
+  build-and-test-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: "6.0.x"
+      - name: Test
+        run: dotnet test -c Release
+      - name: Build
+        shell: bash
+        run: |
+          pushd './${{env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
+          dotnet build -c Release --output ./publish_output/
+          popd
+
