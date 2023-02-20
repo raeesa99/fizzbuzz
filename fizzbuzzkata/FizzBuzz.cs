@@ -11,28 +11,17 @@ namespace fizzbuzzkata
     {
         public string Check(int number)
         {
-            var rule = new Lucky();
+          
 
-            if (rule.isApplicable(number))
+            List<IRules> rules = new List<IRules> { new Lucky(), new FizzBuzzChecker(), new Fizz(), new Buzz() };
+
+            foreach (var rule in rules)
             {
-                return rule.Apply();
-            }
-
-            var rule1 = new FizzBuzzChecker();
-
-            if (rule1.isApplicable(number))
+                if (rule.isApplicable(number))
                 {
-                return rule1.Apply();
+                    return rule.Apply();
+                }
             }
-            else if (number % 3 == 0)
-            {
-                return "Fizz";
-            }
-            else if (number % 5 == 0)
-            {
-                return "Buzz";
-            }
-            else
             {
                 return number.ToString();
 

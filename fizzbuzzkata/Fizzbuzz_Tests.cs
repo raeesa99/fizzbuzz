@@ -11,8 +11,7 @@ namespace fizzbuzzkata
         {
             var result = new FizzBuzz().Check(number);
             Assert.Equal(expected, result);
-        }
-        
+        }      
 
         [Fact]
         public void FizzBuzzLucky_()
