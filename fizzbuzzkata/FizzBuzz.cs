@@ -8,14 +8,18 @@ using System.Threading.Tasks;
 namespace fizzbuzzkata
 {
     public class FizzBuzz
+
     {
+        private List<IRules> _rules;
+        public FizzBuzz(List<IRules> rules)
+        {
+            _rules = rules;
+
+        }
         public string Check(int number)
         {
-          
 
-            List<IRules> rules = new List<IRules> { new Lucky(), new FizzBuzzChecker(), new Fizz(), new Buzz() };
-
-            foreach (var rule in rules)
+            foreach (var rule in _rules)
             {
                 if (rule.isApplicable(number))
                 {
